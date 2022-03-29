@@ -1,0 +1,14 @@
+screenshots
+node_modules
+try.js
+old-extension
+dist
+extension
+dev
+.vscode
+web-ext-artifacts
+extension.crx
+extension.pem
+storybook-static
+.DS_Store
+tsfmt.json
