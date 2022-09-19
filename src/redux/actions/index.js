@@ -190,12 +190,16 @@ export const muteChat = (topic, muted) => ({
 	},
 });
 
-export const setSliderValue = sliderValue => ({
-	type: 'chat/SET_SLIDER_VALUE',
-	payload: sliderValue
+// 阅后即焚
+export const setSlider = (sliderValue, timeString) => ({
+	type: 'chat/SET_SLIDER',
+	payload: {
+		sliderValue,
+		timeString
+	}
 });
 
-// 设置阅后即焚
+// 切换阅后即焚状态
 export const switchBurnAfterReading = burned => ({
 	type: 'chat/SET_BURN_AFTER_READING',
 	payload: burned

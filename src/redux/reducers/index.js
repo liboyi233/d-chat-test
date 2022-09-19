@@ -141,6 +141,8 @@ const globalSettings = (state = {
 const chatSettings = (state = {}, action) => {
 	let newState, initial;
 	const topic = action.payload?.topic;
+	// console.log(topic);
+	// console.log(action);
 
 	switch (action.type) {
 		case 'chat/REMOVE':
@@ -181,7 +183,7 @@ const chatSettings = (state = {}, action) => {
 			configs.chatSettings = newState;
 			break;
 
-		// 标记为已读
+		// 标记已读
 		case 'chat/MARK_READ':
 			newState = {
 				...state,
@@ -243,26 +245,29 @@ const chatSettings = (state = {}, action) => {
 			configs.chatSettings = newState;
 			break;
 
-		default:
+			default:
 			newState = state;
 	}
 	return newState;
 };
 
+// 阅后即焚
 const initState = {
 	sliderValue: 0,
+	timeString: 'OFF',
 	burned: false,
 	burnTime: 0,
-	burnList: []
+	// burnList: []
 };
 const burnAfterReading = (state = initState, action) => {
 	const { type, payload } = action;
 
 	switch (type) {
-		case 'chat/SET_SLIDER_VALUE':
+		case 'chat/SET_SLIDER':
 			return {
 				...state,
-				sliderValue: payload
+				sliderValue: payload.sliderValue,
+				timeString: payload.timeString
 			};
 		case 'chat/SET_BURN_AFTER_READING':
 			return {
@@ -274,14 +279,11 @@ const burnAfterReading = (state = initState, action) => {
 				...state,
 				burnTime: payload
 			};
-		// case 'addBurnAfterReadingContact':
-		//	 return {
-
-		//	 };
 		default:
 			return state;
 	}
 };
+
 
 // Most recent open page, where re-opening popup will start.
 const navigation = (state = { mostRecentPage: '/' }, action) => {

@@ -288,6 +288,12 @@ IncomingMessage.SUPPORTED_CONTENT_TYPES = [
 	'receipt',
 	'text',
 	'video',
+	'ping',
+	'read',
+	'device:request',
+	'event:contactOptions',
+	'textExtension',
+	'msgStatus'
 ];
 
 export default IncomingMessage;

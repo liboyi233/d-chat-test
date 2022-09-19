@@ -8,6 +8,8 @@ let Options = {
 	},
 	chatSettings: {},
 
+	// burnAfter: {},
+
 	notifications: false,
 	audioNotifications: true,
 };

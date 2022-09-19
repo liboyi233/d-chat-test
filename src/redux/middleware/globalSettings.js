@@ -9,14 +9,12 @@ const globalSettings = store => next => action => {
 		case 'chat/RECEIVE_MESSAGE':
 		case 'chat/RECEIVE_REACTION':
 			ignoredUsers = store.getState().globalSettings.muted;
-			// includes() 判断一个数组是否包含一个指定的值
+			// includes() 判断一个数组是否包含一个指定值
 			if (ignoredUsers.includes(action.payload.message.addr)) {
 				action.payload.message.ignored = true;
 			}
 			break;
 		// globalSetting 和 chatSetting 有何区别？
-		// case 'chat/BURN_AFTER_READING':
-		//
 	}
 	next(action);
 };

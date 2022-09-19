@@ -38,6 +38,12 @@ function addNKNListeners (client) {
 	 * All incoming messages go through here.
 	 */
 	async function handleIncomingMessage(src, payload, payloadType) {
+
+		console.log('src-----> '+ src);
+		console.log('payload-----> ' + payload);
+		console.log('payloadType-----> ' + payloadType);
+		console.log('====================');
+
 		if (payloadType === PayloadType.TEXT) {
 			const data = JSON.parse(payload);
 			// Throws if contentType is bad.
